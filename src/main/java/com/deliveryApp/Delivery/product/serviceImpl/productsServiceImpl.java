@@ -5,6 +5,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.deliveryApp.Delivery.product.model.products;
@@ -21,8 +22,12 @@ public class productsServiceImpl implements productsService{
 	public productsRepository productRepository;
 	
 	public Page<products> getAllProducts(int page, int size) {
+		Page<products> producto = productRepository.findAll(PageRequest.of(page, size,Sort.by("IdItem").ascending()));
+		producto.forEach(item ->
+			System.out.println(item.toString())
+		);
 		
-		return productRepository.findAll(PageRequest.of(page, size));
+		return producto;
 	}
 
 }

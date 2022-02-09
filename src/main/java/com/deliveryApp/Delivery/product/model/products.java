@@ -2,6 +2,8 @@ package com.deliveryApp.Delivery.product.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,6 +13,7 @@ import javax.persistence.Table;
 public class products {
 
 	@Column(name = "id_item")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private Long idItem;
 	
@@ -24,7 +27,7 @@ public class products {
 	@Column(name = "precio_oferta")
 	private Float precioOferta;
 	
-	private String picture;
+	private String imagen;
 
 	public Long getIdItem() {
 		return idItem;
@@ -66,13 +69,21 @@ public class products {
 		this.precioOferta = precioOferta;
 	}
 
-	public String getPicture() {
-		return picture;
+	public String getImagen() {
+		return imagen;
 	}
 
-	public void setPicture(String picture) {
-		this.picture = picture;
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
 	}
+
+	@Override
+	public String toString() {
+		return "products [idItem=" + idItem + ", nombre=" + nombre + ", idCategoria=" + idCategoria + ", precio="
+				+ precio + ", precioOferta=" + precioOferta + ", imagen=" + imagen + "]";
+	}
+	
+	
 	
 	
 	
