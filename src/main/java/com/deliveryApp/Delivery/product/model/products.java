@@ -1,5 +1,7 @@
 package com.deliveryApp.Delivery.product.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +12,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "item", schema = "productos")
-public class products {
+public class products implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Column(name = "id_item")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +35,8 @@ public class products {
 	private Float precioOferta;
 	
 	private String imagen;
+	
+	private String description;
 
 	public Long getIdItem() {
 		return idItem;
@@ -75,6 +84,15 @@ public class products {
 
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
+	}
+	
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	@Override

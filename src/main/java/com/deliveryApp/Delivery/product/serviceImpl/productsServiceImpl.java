@@ -21,6 +21,7 @@ public class productsServiceImpl implements productsService{
 	@Autowired 
 	public productsRepository productRepository;
 	
+	@Override
 	public Page<products> getAllProducts(int page, int size) {
 		Page<products> producto = productRepository.findAll(PageRequest.of(page, size,Sort.by("IdItem").ascending()));		
 		return producto;
