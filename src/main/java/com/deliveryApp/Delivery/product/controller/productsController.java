@@ -22,9 +22,9 @@ public class productsController {
 	
 	
 	@GetMapping
-	public ResponseEntity<ServiceResponse> getAllProducto(@RequestParam(name = "page",defaultValue = "0")int page,
+	public ResponseEntity<ServiceResponse> getAllProducto(@RequestParam(name = "idUser")Long idUser, @RequestParam(name = "page",defaultValue = "0")int page,
 			@RequestParam(name = "size", defaultValue = "10")int size) {
-		return ServiceResponseFactory.createResponse(product.getAllProducts(page,size));
+		return ServiceResponseFactory.createResponse(product.getAllProducts(idUser,page,size));
 	}
 
 }

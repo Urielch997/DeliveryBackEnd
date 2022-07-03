@@ -9,4 +9,5 @@ import com.deliveryApp.Delivery.user.model.favoritos;
 public interface FavoritosUserRepository extends JpaRepository<favoritos, Long>{
 
 	Page<favoritos> getByUsuarioIdUser(Long id,Pageable pegeable);
+	favoritos findByUsuarioIdUserAndProductoIdItem(Long id,Long idItem);
 }
