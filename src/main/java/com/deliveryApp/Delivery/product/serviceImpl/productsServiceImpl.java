@@ -8,7 +8,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.deliveryApp.Delivery.product.model.products;
 import com.deliveryApp.Delivery.product.repository.productsRepository;
 import com.deliveryApp.Delivery.product.responseDto.ProductoResponseDto;
 import com.deliveryApp.Delivery.product.service.productsService;

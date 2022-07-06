@@ -2,6 +2,7 @@ package com.deliveryApp.Delivery.user.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,6 +31,11 @@ public class favoritosController {
 	@PostMapping("/favoritos")
 	public ResponseEntity<ServiceResponse> guardarFavorito(@RequestBody FavoritoSaveRequestdto favorito){
 		return ServiceResponseFactory.createResponse(favoritos.guardarFavorito(favorito));
+	}
+	
+	@DeleteMapping("/favoritos")
+	public ResponseEntity<ServiceResponse> deleteFavorito(@RequestParam(name = "idFavorito") Long idFavorito){
+		return ServiceResponseFactory.createResponse(favoritos.deleteFavorito(idFavorito));
 	}
 
 }
