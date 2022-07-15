@@ -42,7 +42,7 @@ public class user implements Serializable{
     @Enumerated(EnumType.STRING)
     private AuthProvider provider;
 
-    private String providerId;
+    private String providerid;
 
 	public Long getIdUser() {
 		return idUser;
@@ -94,13 +94,15 @@ public class user implements Serializable{
 	public void setProvider(AuthProvider provider) {
 		this.provider = provider;
 	}
-
-	public String getProviderId() {
-		return providerId;
+	
+	
+	
+	public String getProviderid() {
+		return providerid;
 	}
 
-	public void setProviderId(String providerId) {
-		this.providerId = providerId;
+	public void setProviderid(String providerid) {
+		this.providerid = providerid;
 	}
 
 	@Override
