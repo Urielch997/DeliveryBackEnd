@@ -96,7 +96,6 @@ public class user implements Serializable{
 	}
 	
 	
-	
 	public String getProviderid() {
 		return providerid;
 	}
