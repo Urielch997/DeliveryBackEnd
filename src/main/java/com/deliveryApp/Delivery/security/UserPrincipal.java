@@ -20,7 +20,8 @@ public class UserPrincipal implements OAuth2User, UserDetails {
     private Map<String, Object> attributes;
 
     public UserPrincipal(Long id, String email, String password, Collection<? extends GrantedAuthority> authorities) {
-        this.id = id;
+        System.out.println("Id " + id + "email " + email + "password" + password);
+    	this.id = id;
         this.email = email;
         this.password = password;
         this.authorities = authorities;
@@ -29,7 +30,7 @@ public class UserPrincipal implements OAuth2User, UserDetails {
     public static UserPrincipal create(user User) {
         List<GrantedAuthority> authorities = Collections.
                 singletonList(new SimpleGrantedAuthority("ROLE_USER"));
-
+        System.out.println("User principal" + User.toString());
         return new UserPrincipal(
         		User.getIdUser(),
         		User.getEmail(),
@@ -39,7 +40,7 @@ public class UserPrincipal implements OAuth2User, UserDetails {
     }
 
     public static UserPrincipal create(user User, Map<String, Object> attributes) {
-    	System.out.println("User principal" + User);
+    	System.out.println("User principal" + User.toString());
         UserPrincipal userPrincipal = UserPrincipal.create(User);
         userPrincipal.setAttributes(attributes);
         return userPrincipal;
