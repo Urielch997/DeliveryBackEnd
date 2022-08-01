@@ -8,6 +8,8 @@ import com.deliveryApp.Delivery.user.model.user;
 
 public interface UsuarioRepository extends JpaRepository<user, Long>{
     Optional<user> findByEmail(String email);
+    
+    Optional<user> findById(Long id);
 
     Boolean existsByEmail(String email);
 }

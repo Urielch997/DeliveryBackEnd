@@ -32,17 +32,25 @@ public class user implements Serializable{
 	
 	private String email;
 	
-	
     @JsonIgnore
     private String password;
     
     private String imageUrl;
 
-   
     @Enumerated(EnumType.STRING)
     private AuthProvider provider;
 
     private String providerid;
+    
+    private String telefono;
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
 
 	public Long getIdUser() {
 		return idUser;
