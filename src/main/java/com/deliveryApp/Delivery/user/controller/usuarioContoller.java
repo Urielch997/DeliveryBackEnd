@@ -27,7 +27,7 @@ public class usuarioContoller {
 	
 	@GetMapping
 	public ResponseEntity<ServiceResponse> getShoppingCart(@RequestParam(name = "idUser") Long idUser){
-		return null;
+		return ServiceResponseFactory.createResponse(null);
 	}
 
 }
