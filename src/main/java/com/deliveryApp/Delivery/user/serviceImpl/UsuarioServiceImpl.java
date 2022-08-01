@@ -22,6 +22,7 @@ public class UsuarioServiceImpl implements UsuarioService{
 	public String UpdateInfoUser(UsuarioInfoRequestDto userInfo) {
 		user usuario = usuarioRepository.findById(userInfo.getIdUser()).orElseThrow(()->new NotFoundException("No se encontro el suaurio"));
 		usuario.setTelefono(userInfo.getTelefono());
+		usuario.setUserName(userInfo.getNombre());
 		usuarioRepository.save(usuario);
 		return "Usuario actualizado!";
 	}
