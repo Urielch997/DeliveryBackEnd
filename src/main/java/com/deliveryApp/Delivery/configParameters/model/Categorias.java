@@ -25,15 +25,27 @@ public class Categorias {
     @Column(name = "fecha_creacion")
     private Date fechaCreacion;
 
-    public Categorias(Long idCategoria, String nombre, String descripcion, Status estado, Date fechaCreacion) {
+    @Column(name = "codigo")
+    private String codigo;
+
+    public Categorias(Long idCategoria, String nombre, String descripcion, Status estado, Date fechaCreacion,String codigo) {
         this.idCategoria = idCategoria;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.estado = estado;
         this.fechaCreacion = fechaCreacion;
+        this.codigo = codigo;
     }
 
     public Categorias() {
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public Long getIdCategoria() {

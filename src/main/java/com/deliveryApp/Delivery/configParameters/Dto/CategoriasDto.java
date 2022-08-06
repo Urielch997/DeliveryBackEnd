@@ -8,9 +8,8 @@ import javax.persistence.Column;
 public class CategoriasDto {
 
     private Long idCategoria;
-
     private String nombre;
-
     private String descripcion;
+    private String codigo;
 
 }
