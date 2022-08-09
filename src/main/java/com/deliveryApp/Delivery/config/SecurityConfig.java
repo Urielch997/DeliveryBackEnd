@@ -101,7 +101,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                     .antMatchers("/",
                         "/categoria/*", "/categoria",
-                        "/products",
                         "/error",
                         "/favicon.ico",
                         "/**/*.png",
@@ -112,7 +111,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/*.css",
                         "/**/*.js")
                         .permitAll()
-                    .antMatchers("/auth/**", "/oauth2/**")
+                    .antMatchers("/auth/**", "/oauth2/**","/products")
                         .permitAll()
                     .anyRequest()
                         .authenticated()

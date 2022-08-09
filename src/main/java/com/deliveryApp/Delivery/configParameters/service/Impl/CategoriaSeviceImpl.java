@@ -7,6 +7,8 @@ import com.deliveryApp.Delivery.configParameters.repository.CategoriasRepository
 import com.deliveryApp.Delivery.configParameters.service.CategoriaService;
 import com.deliveryApp.Delivery.exception.CustomException;
 import lombok.extern.log4j.Log4j2;
+
+import org.apache.logging.log4j.Logger;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,8 @@ public class CategoriaSeviceImpl implements CategoriaService {
 
     @Autowired
     private ModelMapper modelMapper;
+    
+    private Logger log;
 
     @Autowired
     private CategoriasRepository categoriasRepository;
