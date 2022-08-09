@@ -11,4 +11,6 @@ public interface favoritosUserService {
 	public String guardarFavorito(FavoritoSaveRequestdto favorito);
 	
 	public String deleteFavorito(Long idFavorito);
+	
+	public String deleteFavoritoUsuarioAndProducto(Long idUsuario,Long idProducto);
 }

@@ -68,6 +68,13 @@ public class favoritosServiceImpl implements favoritosUserService{
 		return "Eliminado";
 	}
 	
+	@Override
+	public String deleteFavoritoUsuarioAndProducto(Long idUsuario,Long idProducto) {
+		favoritos fav = favRepository.findByUsuarioIdUserAndProductoIdItem(idUsuario,idProducto);
+		favRepository.delete(fav);
+		return "Eliminado";
+	}
+	
 	
 	
 	
