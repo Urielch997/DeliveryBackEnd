@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.deliveryApp.Delivery.reddis.shopingCart.entity.Item;
@@ -21,11 +22,6 @@ public class shoppingCartController {
 	
 	@Autowired
 	ShoppingCartService shopingservice;
-	
-	@GetMapping("/countCart/{idCart}")
-	public ResponseEntity<ServiceResponse> getCuantityCart(@PathVariable(name = "idCart") String idCart){
-		return ServiceResponseFactory.createResponse(shopingservice.countCart(idCart));
-	}
 
 	
 	@DeleteMapping
@@ -38,8 +34,13 @@ public class shoppingCartController {
 		return ServiceResponseFactory.createResponse(shopingservice.addShoppingCart(product));
 	}
 	
-	@GetMapping("/getCart/{idCart}")
-	public ResponseEntity<ServiceResponse> getCart(@PathVariable(name = "idCart") String idCart){
-		return ServiceResponseFactory.createResponse(shopingservice.getCart(idCart));
+	@GetMapping("/getCart/{idUser}")
+	public ResponseEntity<ServiceResponse> getCart(@PathVariable(name = "idUser") String idUser){
+		return ServiceResponseFactory.createResponse(shopingservice.getShoopingCart(idUser));
+	}
+	
+	@DeleteMapping("delete/{idUser}")
+	public ResponseEntity<ServiceResponse> deleteCart(@PathVariable(name = "idUser") String idUser,@RequestParam("idItem") String idItem){
+		return ServiceResponseFactory.createResponse(shopingservice.deleteItem(idItem,idUser));
 	}
 }

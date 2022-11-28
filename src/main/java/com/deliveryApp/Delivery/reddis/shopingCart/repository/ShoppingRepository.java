@@ -1,12 +1,14 @@
 package com.deliveryApp.Delivery.reddis.shopingCart.repository;
 
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.deliveryApp.Delivery.reddis.shopingCart.entity.Item;
 
 
-@Repository
-public interface ShoppingRepository extends CrudRepository<Item, String> {
-	Item findByIdUser(String idUser);
+public interface ShoppingRepository extends JpaRepository<Item, String> {
+	List<Item> findByIdUser(String idUser);
+
+	Item  existsByProducts(String idItem);
 }

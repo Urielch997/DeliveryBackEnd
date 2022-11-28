@@ -1,13 +1,13 @@
 package com.deliveryApp.Delivery.reddis.shopingCart.service;
 
+import com.deliveryApp.Delivery.reddis.shopingCart.dto.CartDto;
 import com.deliveryApp.Delivery.reddis.shopingCart.entity.Item;
 
 public interface ShoppingCartService {
 	String addShoppingCart(Item product);
 	
-	Item getShoopingCart(String idUser);
+	CartDto getShoopingCart(String idUser);
 	
-	Item getCart(String idCart);
+	String deleteItem(String idItem,String idUser);
 	
-	Integer countCart(String idCart);
 }

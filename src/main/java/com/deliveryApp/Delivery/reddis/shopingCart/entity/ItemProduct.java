@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
+import org.springframework.data.redis.core.index.Indexed;
 
 @RedisHash("ItemProduct")
 public class ItemProduct implements Serializable{
@@ -13,16 +14,22 @@ public class ItemProduct implements Serializable{
 	@Id
 	private String idItem;
 	
+	@Indexed
 	private String nombre;
 	
+	@Indexed
 	private Long idCategoria;
 	
+	@Indexed
 	private Double precio;
 	
+	@Indexed
 	private Double precioOferta;
 	
+	@Indexed
 	private String imagen;
 	
+	@Indexed
 	private String description;
 
 	public String getIdItem() {
@@ -80,6 +87,15 @@ public class ItemProduct implements Serializable{
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	@Override
+	public String toString() {
+		return "ItemProduct [idItem=" + idItem + ", nombre=" + nombre + ", idCategoria=" + idCategoria + ", precio="
+				+ precio + ", precioOferta=" + precioOferta + ", imagen=" + imagen + ", description=" + description
+				+ "]";
+	}
+	
+	
 	
 	
 }

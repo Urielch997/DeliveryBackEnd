@@ -1,10 +1,10 @@
 package com.deliveryApp.Delivery.reddis.shopingCart.entity;
 
 import java.io.Serializable;
-import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
+import org.springframework.data.redis.core.index.Indexed;
 
 @RedisHash("Item")
 public class Item implements Serializable{
@@ -14,10 +14,20 @@ public class Item implements Serializable{
 	@Id
 	private String idCart;
 
+	 @Indexed
 	private String idUser;
 	
-	private List<ItemProduct> products;
+	 @Indexed
+	private ItemProduct products;
 	
+	public ItemProduct getProducts() {
+		return products;
+	}
+
+	public void setProducts(ItemProduct products) {
+		this.products = products;
+	}
+
 	public String getIdCart() {
 		return idCart;
 	}
@@ -32,14 +42,6 @@ public class Item implements Serializable{
 	
 	public void setIdUser(String idUser) {
 		this.idUser = idUser;
-	}
-
-	public List<ItemProduct> getProducts() {
-		return products;
-	}
-
-	public void setProducts(List<ItemProduct> products) {
-		this.products = products;
 	}
 
 	@Override
