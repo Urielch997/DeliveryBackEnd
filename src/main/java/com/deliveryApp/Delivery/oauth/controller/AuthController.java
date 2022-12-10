@@ -20,6 +20,8 @@ import com.deliveryApp.Delivery.security.TokenProvider;
 import com.deliveryApp.Delivery.sociale.types.AuthProvider;
 import com.deliveryApp.Delivery.user.model.user;
 import com.deliveryApp.Delivery.user.repository.UsuarioRepository;
+import com.deliveryApp.Delivery.utils.ServiceResponse;
+import com.deliveryApp.Delivery.utils.ServiceResponseFactory;
 
 import javax.validation.Valid;
 import java.net.URI;
@@ -41,7 +43,7 @@ public class AuthController {
     private TokenProvider tokenProvider;
 
     @PostMapping("/login")
-    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<ServiceResponse> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
@@ -53,7 +55,7 @@ public class AuthController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         String token = tokenProvider.createToken(authentication);
-        return ResponseEntity.ok(new AuthResponse(token));
+        return ServiceResponseFactory.createResponse(new AuthResponse(token));
     }
 
     @PostMapping("/signup")
@@ -80,5 +82,6 @@ public class AuthController {
         return ResponseEntity.created(location)
                 .body(new ApiResponse(true, "User registered successfully@"));
     }
+   
 
 }

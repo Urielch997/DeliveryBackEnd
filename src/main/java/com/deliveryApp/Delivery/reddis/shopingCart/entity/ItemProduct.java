@@ -31,6 +31,16 @@ public class ItemProduct implements Serializable{
 	
 	@Indexed
 	private String description;
+	
+	private Integer cantidad;
+
+	public Integer getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(Integer cantidad) {
+		this.cantidad = cantidad;
+	}
 
 	public String getIdItem() {
 		return idItem;
