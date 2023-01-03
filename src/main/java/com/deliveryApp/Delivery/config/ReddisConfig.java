@@ -16,14 +16,11 @@ public class ReddisConfig {
 	JedisConnectionFactory jedisConnectionFactory() {
 		 JedisConnectionFactory jedisConFactory
 	      = new JedisConnectionFactory();
-	    jedisConFactory.setHostName("containers-us-west-130.railway.app");
-	    jedisConFactory.setPort(6615);
-	    jedisConFactory.setPassword("L2BN0BC3XCIgHDsSm0Rg");
 	    return jedisConFactory;
 	}
 
 	@Bean
-	public RedisTemplate<byte[], byte[]> redisTemplate() {
+	RedisTemplate<byte[], byte[]> redisTemplate() {
 	    RedisTemplate<byte[], byte[]> template = new RedisTemplate<>();
 	    Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(Object.class);
 	    template.setConnectionFactory(jedisConnectionFactory());
