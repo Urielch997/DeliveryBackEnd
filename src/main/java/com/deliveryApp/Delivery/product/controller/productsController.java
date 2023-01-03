@@ -26,5 +26,10 @@ public class productsController {
 			@RequestParam(name = "size", defaultValue = "10")int size) {
 		return ServiceResponseFactory.createResponse(product.getAllProducts(idUser,page,size));
 	}
+	
+	@GetMapping("/categorias")
+	public ResponseEntity<ServiceResponse> getAllCategoria() {
+		return ServiceResponseFactory.createResponse(product.getAllCategorias());
+	}
 
 }

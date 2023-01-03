@@ -5,9 +5,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.deliveryApp.Delivery.user.model.favoritos;
+import com.deliveryApp.Delivery.user.model.pKCom.PKFav;
 
-public interface FavoritosUserRepository extends JpaRepository<favoritos, Long>{
-
-	Page<favoritos> getByUsuarioIdUser(Long id,Pageable pegeable);
-	favoritos findByUsuarioIdUserAndProductoIdItem(Long id,Long idItem);
+public interface FavoritosUserRepository extends JpaRepository<favoritos, PKFav>{
+	Page<favoritos>  findByUsuarioIdUser(Long  item,Pageable page);
 }

@@ -33,10 +33,6 @@ public class favoritosController {
 		return ServiceResponseFactory.createResponse(favoritos.guardarFavorito(favorito));
 	}
 	
-	@DeleteMapping("/favoritos")
-	public ResponseEntity<ServiceResponse> deleteFavorito(@RequestParam(name = "idFavorito") Long idFavorito){
-		return ServiceResponseFactory.createResponse(favoritos.deleteFavorito(idFavorito));
-	}
 	
 	@DeleteMapping("/favorito")
 	public ResponseEntity<ServiceResponse> deleteFavorito(@RequestParam(name = "idUsuario") Long idUsuario,@RequestParam(name = "idProducto")Long idProducto){
