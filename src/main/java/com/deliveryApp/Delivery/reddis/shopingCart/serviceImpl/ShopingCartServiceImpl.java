@@ -29,19 +29,13 @@ public class ShopingCartServiceImpl implements ShoppingCartService{
 					throw new CustomException("Articulo  ya se encuentra en el carrito");
 				}
 			});
-		
-
 		Item userAdd = shopingRepo.save(product);
-		System.out.println(userAdd.toString());
 		return userAdd.getIdCart();
 	}
 
 	@Override
 	public CartDto getShoopingCart(String idUser) {
 		List<Item> userAdd =  shopingRepo.findByIdUser(idUser);
-		if(userAdd.size() == 0) {
-			throw new NotFoundException("No existe carrito de compras para este usuario");
-		}
 		CartDto card = new CartDto();
 		card.setIdUser(idUser);
 		card.setIdCart(userAdd.get(0).getIdCart());
